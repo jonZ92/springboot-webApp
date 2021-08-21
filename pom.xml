@@ -57,6 +57,16 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.7</version>
         </dependency>
+        <dependency>
+            <groupId>com.cnsugar</groupId>
+            <artifactId>common</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cnsugar</groupId>
+            <artifactId>common-mongodb</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

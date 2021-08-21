@@ -1,5 +1,6 @@
 package com.web.app.cn.bean;
 
+import com.cnsugar.common.mongodb.MongoUtils;
 import lombok.Data;
 
 /**
