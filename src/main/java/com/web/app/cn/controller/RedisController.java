@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * @author jon
@@ -30,9 +32,21 @@ public class RedisController {
         return String.valueOf(redisUtil.get(string));
     }
 
+    @GetMapping(value = "/redis/set/{key}/{value}")
+    public String testSet(@PathVariable(value = "key") String key, @PathVariable(value = "value") String value) {
+        redisUtil.set(key, value);
+        return String.valueOf(redisUtil.get(key));
+    }
+
     @GetMapping(value = "/redis/del/{string}")
     public String testDle(@PathVariable(value = "string") String string) {
         redisUtil.del(string);
         return "success";
+    }
+
+    @GetMapping(value = "/are/you/ready")
+    public String test() {
+        Map<String, String> PARAMS = new HashMap<String, String>(6, 1);
+        return "are you ready";
     }
 }

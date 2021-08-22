@@ -18,7 +18,7 @@ public class UrlInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("request path is :{}",request.getRequestURI());
         if (request.getRequestURI().equals("/")) {
-            response.sendRedirect("app/v1/xxx");
+            response.sendRedirect("app/v1/are/you/ready");
             return false;
         }
         return true;
