@@ -1,6 +1,10 @@
-package com.web.app.cn.controller;
+package com.web.app.cn.app.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.web.app.cn.app.server.SystemService;
 import com.web.app.cn.utils.RedisUtil;
+import org.bson.json.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +27,8 @@ public class RedisController {
 
     @Autowired
     private RedisUtil redisUtil;
+    @Autowired
+    private SystemService server;
 
 
     @GetMapping(value = "/redis/set/{string}")
@@ -46,7 +52,6 @@ public class RedisController {
 
     @GetMapping(value = "/are/you/ready")
     public String test() {
-        Map<String, String> PARAMS = new HashMap<String, String>(6, 1);
-        return "are you ready";
+        return JSON.toJSONString(server.test());
     }
 }
